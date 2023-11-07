@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1057739784879",
+    "firebase_url": "https://group3project-59d6f-default-rtdb.firebaseio.com",
     "project_id": "group3project-59d6f",
     "storage_bucket": "group3project-59d6f.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.group3project"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1057739784879-2evpl3cru7f3gdnlgpjner7vv44qlbt6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.group3project",
+            "certificate_hash": "8849f197816ded66d69447d3f0e32aa08512486a"
+          }
+        },
+        {
+          "client_id": "1057739784879-uoumt3ustqmu2tp3orhp11maitnomf3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCLW0D75lZr-0jvdYWXYfizouVQE6uhrP0"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057739784879-uoumt3ustqmu2tp3orhp11maitnomf3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
