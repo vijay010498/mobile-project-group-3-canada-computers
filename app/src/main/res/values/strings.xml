@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Group3Project</string>
     <string name="title_activity_signup">signup</string>
+    <string name="Products">Products</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
