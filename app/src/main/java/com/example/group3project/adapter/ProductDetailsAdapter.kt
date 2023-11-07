@@ -1,4 +1,4 @@
-package com.example.group3project
+package com.example.group3project.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.group3project.R
 import com.example.group3project.models.Product
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -33,7 +34,8 @@ class ProductDetailsAdapter(options: FirebaseRecyclerOptions<Product>) : Firebas
 
     }
 
-    inner class MyViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerView.ViewHolder(inflater.inflate(R.layout.activity_full_screen_image, parent, false))
+    inner class MyViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerView.ViewHolder(inflater.inflate(
+        R.layout.activity_full_screen_image, parent, false))
     {
 
         val product_title: TextView = itemView.findViewById(R.id.product_title)

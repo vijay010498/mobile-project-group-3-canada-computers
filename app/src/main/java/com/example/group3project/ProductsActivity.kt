@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.example.group3project.adapter.ProductAdapter
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.example.group3project.models.Product
@@ -33,8 +32,6 @@ class ProductsActivity : AppCompatActivity() {
         progressDialog!!.show()
 
         goToCartBtn = findViewById(R.id.button_go_to_cart)
-        var totalAmount = 0.0
-        var totalProducts = 0
 
         val productsDatabaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Product")
 
@@ -63,8 +60,6 @@ class ProductsActivity : AppCompatActivity() {
                 mRecyclerView.adapter = adapter
                 progressDialog!!.dismiss()
 
-                totalProducts = adapter.itemCount
-                totalAmount = adapter.getTotalCartItemsCost()
 
             }
 
@@ -75,7 +70,8 @@ class ProductsActivity : AppCompatActivity() {
         }
         productsDatabaseReference.addListenerForSingleValueEvent(productsItemsListener)
         goToCartBtn?.setOnClickListener(View.OnClickListener {
-            val cartIntent = Intent(this@ProductsActivity, MainActivity::class.java)
+            val cartIntent = Intent(this@ProductsActivity,
+                CartActivity::class.java)
             startActivity(cartIntent)
         })
     }

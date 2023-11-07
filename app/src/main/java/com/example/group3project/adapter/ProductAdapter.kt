@@ -1,4 +1,4 @@
-package com.example.group3project
+package com.example.group3project.adapter
 
 import android.content.Context
 import android.util.Log
@@ -12,15 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.group3project.R
 import com.example.group3project.models.Product
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 
 class ProductAdapter(private val context: Context, private val productsList: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
@@ -45,12 +42,12 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_list, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ProductAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val data = productsList[position]
         Glide.with(holder.product_image).load(data.image).into(holder.product_image)
@@ -72,7 +69,7 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
                 "productPrice" to data.price.toDouble(),
                 "productImage" to data.image,
                 "productDescription" to data.description,
-                "productRating" to data.rating.toString(),
+                "productRating" to data.rating.toDouble(),
                 "productCategory" to data.category.toString()
             )
             if (userId != null) {
@@ -90,16 +87,5 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
 
     override fun getItemCount(): Int {
         return productsList.size
-    }
-
-
-    fun getTotalCartItemsCost(): Double {
-        var totalCost = 0.0
-
-        for (product in productsList) {
-            totalCost += product.price ?: 0.0
-        }
-
-        return totalCost
     }
 }
