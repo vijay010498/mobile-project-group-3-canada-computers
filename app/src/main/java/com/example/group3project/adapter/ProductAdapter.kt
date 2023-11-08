@@ -67,12 +67,21 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
         holder.product_image.setOnClickListener{
             val fullScreenIntent = Intent(context, FullScreenImage::class.java)
             fullScreenIntent.putExtra("imageURL", productsList[position].image)
+            fullScreenIntent.putExtra("productTitle", productsList[position].title)
+            fullScreenIntent.putExtra("productDescription", productsList[position].description)
+            fullScreenIntent.putExtra("productRating", productsList[position].rating)
+            fullScreenIntent.putExtra("productPrice", productsList[position].price)
+
             context.startActivity(fullScreenIntent)
         }
 
         holder.productDetailLayout.setOnClickListener{
             val fullScreenIntent = Intent(context, FullScreenImage::class.java)
             fullScreenIntent.putExtra("imageURL", productsList[position].image)
+            fullScreenIntent.putExtra("productTitle", productsList[position].title)
+            fullScreenIntent.putExtra("productDescription", productsList[position].description)
+            fullScreenIntent.putExtra("productRating", productsList[position].rating)
+            fullScreenIntent.putExtra("productPrice", productsList[position].price)
             context.startActivity(fullScreenIntent)
         }
 
