@@ -1,5 +1,7 @@
 package com.example.group3project.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,12 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.group3project.FullScreenImage
 import com.example.group3project.R
 import com.example.group3project.models.CartItem
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class CartAdapter (private val cartList: List<CartItem>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter (private val context: Context, private val cartList: List<CartItem>) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgProduct: ImageView
         val txtProductPrice: TextView
@@ -37,6 +40,12 @@ class CartAdapter (private val cartList: List<CartItem>) : RecyclerView.Adapter<
         holder.txtProductName.text = data.productName
 
         Glide.with(holder.imgProduct).load(data.productImage).into(holder.imgProduct)
+
+        holder.imgProduct.setOnClickListener{
+            val fullScreenIntent = Intent(context, FullScreenImage::class.java)
+            fullScreenIntent.putExtra("imageURL", cartList[position].productImage)
+            context.startActivity(fullScreenIntent)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -58,7 +58,7 @@ class CartActivity : AppCompatActivity() {
                     }
 
 
-                    val adapter = CartAdapter(cartItemsList)
+                    val adapter = CartAdapter(this@CartActivity,cartItemsList)
                     recyclerView.adapter = adapter
 
                     totalAmount = adapter.getTotalCartItemsCost()

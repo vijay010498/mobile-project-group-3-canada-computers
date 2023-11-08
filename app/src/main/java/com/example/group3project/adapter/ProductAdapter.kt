@@ -1,17 +1,20 @@
 package com.example.group3project.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.group3project.FullScreenImage
 import com.example.group3project.R
 import com.example.group3project.models.Product
 import com.google.firebase.Firebase
@@ -30,6 +33,7 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
         val product_category: TextView
         val product_rating: RatingBar
         val btnAddToCart: Button
+        val productDetailLayout: LinearLayout
 
         init {
             product_title = itemView.findViewById(R.id.product_title)
@@ -39,6 +43,7 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
             product_category = itemView.findViewById(R.id.product_category)
             product_rating = itemView.findViewById(R.id.product_rating)
             btnAddToCart = itemView.findViewById(R.id.add_to_cart_button)
+            productDetailLayout = itemView.findViewById(R.id.product_detail_layout)
         }
     }
 
@@ -57,6 +62,19 @@ class ProductAdapter(private val context: Context, private val productsList: Lis
         holder.product_rating.rating = data.rating.toFloat()
         holder.product_description.text = data.description
         holder.product_category.text = data.category
+
+
+        holder.product_image.setOnClickListener{
+            val fullScreenIntent = Intent(context, FullScreenImage::class.java)
+            fullScreenIntent.putExtra("imageURL", productsList[position].image)
+            context.startActivity(fullScreenIntent)
+        }
+
+        holder.productDetailLayout.setOnClickListener{
+            val fullScreenIntent = Intent(context, FullScreenImage::class.java)
+            fullScreenIntent.putExtra("imageURL", productsList[position].image)
+            context.startActivity(fullScreenIntent)
+        }
 
         holder.btnAddToCart.setOnClickListener {
             val auth = Firebase.auth
