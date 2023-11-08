@@ -12,12 +12,13 @@
 
         <Button
             android:id="@+id/btnClose"
-            android:layout_width="52dp"
-            android:layout_height="59dp"
-            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/black"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="38dp"
-            android:layout_marginRight="21dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/ic_close"
             android:paddingTop="2dp"
             android:paddingBottom="2dp" />
@@ -36,17 +37,15 @@
             android:id="@+id/imgDisplay"
             android:layout_width="247dp"
             android:layout_height="250dp"
-            android:layout_marginLeft="30dp"
             android:layout_below="@id/product_title"
-            android:layout_marginTop="45dp" />
+            android:layout_marginTop="0dp" />
 
         <TextView
             android:id="@+id/product_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
             android:layout_below="@id/imgDisplay"
-            android:layout_marginTop="-243dp"
+            android:layout_centerHorizontal="true"
             android:text="Dell Laptop - 8 GB RAM - 1TB Memory"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -57,9 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/product_description"
-            android:layout_marginTop="95dp"
+            android:layout_centerHorizontal="true"
             android:isIndicator="true"
-            android:layout_marginLeft="350dp"
             android:numStars="5"
             android:rating="4"
             android:stepSize="0.5" />
@@ -68,12 +66,11 @@
             android:id="@+id/product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/product_rating"
-            android:layout_marginTop="29dp"
-            android:layout_marginLeft="350dp"
             android:text="Price CAD 1599"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_below="@id/product_rating"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>

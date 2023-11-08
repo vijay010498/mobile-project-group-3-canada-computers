@@ -122,7 +122,7 @@
                         android:id="@+id/add_to_cart_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="293dp"
+                        android:layout_marginLeft="0dp"
                         android:backgroundTint="@color/colorPrimaryDark"
                         android:text="Add to Cart"
                         android:textAlignment="center"
